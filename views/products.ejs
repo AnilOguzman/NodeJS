@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PRODUCTS</h1>
+    <p>
+        <%= liste[0].name %>  <!--ejs sayesinde yaptık bunu yandaki yüzdeler ejs sayesinde-->
+    </p>
+    <br>
+    <ul>
+        <% liste.forEach(a => { %>
+            <li><%= a.name %></li> <p><%= a.price %></p>
+        <% }) %>
+    </ul>
+    <br>
+    <ul>
+        <% liste.forEach(a => { %>    <!--ejsforeach kullanımı-->
+            <% if (a.price>40000) { %>  <!--ejsif kullanımı-->
+                <li><%= a.name %></li> <p><%= a.price %></p>
+            <% } %>
+            
+        <% }) %>
+    </ul>
+    <br>
+    <ul>
+        <% liste.forEach(a => { %>    
+            <% if (a.price>40000) { %>  
+                <li>
+                    <a href="/products/<%= a.id %>">  <!--ürünü link şeklinde koyma id sine göre oluşturduk-->
+                    <%= a.name %> -  <%= a.price %>
+                </li>
+            <% } %>
+            
+        <% }) %>
+    </ul>
+</body>
+</html>
